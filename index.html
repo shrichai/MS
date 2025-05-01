@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Microsoft Opportunities</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #0078D7, #00BCF2);
+      padding: 80px 40px;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background: white;
+      color: #0078D7;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #e6f0ff;
+    }
+
+    .btn-blue {
+      background: #0078D7;
+      color: white;
+    }
+
+    .btn-blue:hover {
+      background: #005fa3;
+    }
+
+    .section {
+      background: #ffffff;
+      margin: 40px auto;
+      padding: 40px 30px;
+      max-width: 1000px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #0078D7;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .sub-section {
+      background: #f2f9ff;
+      margin-top: 30px;
+      padding: 30px 20px;
+      border-radius: 20px;
+    }
+
+    .sub-section h3 {
+      color: #0078D7;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .modal-content input {
+      padding: 10px;
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .close {
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section, .sub-section {
+        padding: 20px;
+      }
+
+      .modal-content {
+        margin-top: 30%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Logo" class="logo">
+    <span class="brand-name">Microsoft</span>
+  </header>
+
+  <section class="hero">
+    <h1>Opportunities for BE Students</h1>
+    <p>Join Microsoft with Placement Support + Interview Opportunities<br>One-time fee included</p>
+    <button class="btn-blue btn" onclick="scrollToSection('fresher-track')">Apply Now</button>
+    <button class="btn" onclick="scrollToSection('fresher-track')">Learn More</button>
+  </section>
+
+  <section class="section" id="fresher-track">
+    <h2>Fresher Track</h2>
+    <p>If you are just starting your career, this path is designed for you to begin with an Internship and take the Microsoft Qualifier Exam.</p>
+
+    <div class="sub-section">
+      <h3>Start Internship</h3>
+      <p>Get hands-on experience with real projects.</p>
+      <button class="btn-blue btn" onclick="openModal('internshipModal')">Start Internship</button>
+    </div>
+
+    <div class="sub-section">
+      <h3>Take Qualifier Exam</h3>
+      <p>Pass the exam to move forward with interview and placement process.</p>
+      <button class="btn-blue btn" onclick="openModal('examModal')">Take Exam</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Already Completed Internship?</h2>
+    <p>Proceed to placement support and interview guidance directly with Microsoft-certified trainers and programs.</p>
+    <button class="btn-blue btn" onclick="openModal('placementModal')">Continue to Placement</button>
+  </section>
+
+  <!-- Internship Modal -->
+  <div class="modal" id="internshipModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('internshipModal')">&times;</span>
+      <h3>Enter Internship Details</h3>
+      <input type="text" placeholder="Full Name">
+      <input type="email" placeholder="Email Address">
+      <button class="btn-blue btn" onclick="window.location.href='https://example.com/internship'">Continue</button>
+    </div>
+  </div>
+
+  <!-- Exam Modal -->
+  <div class="modal" id="examModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('examModal')">&times;</span>
+      <h3>Did you complete your internship?</h3>
+      <input type="text" placeholder="Yes / No">
+      <input type="text" placeholder="Your Name">
+      <button class="btn-blue btn" onclick="window.location.href='https://example.com/exam'">Continue</button>
+    </div>
+  </div>
+
+  <!-- Placement Modal -->
+  <div class="modal" id="placementModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('placementModal')">&times;</span>
+      <h3>Enter Offer Letter ID & Registered Number</h3>
+      <input type="text" placeholder="Offer Letter ID">
+      <input type="text" placeholder="Registered Mobile Number">
+      <button class="btn-blue btn" onclick="window.location.href='https://example.com/placement'">Continue</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target == modal) modal.style.display = "none";
+      });
+    };
+  </script>
+
+</body>
+</html>
